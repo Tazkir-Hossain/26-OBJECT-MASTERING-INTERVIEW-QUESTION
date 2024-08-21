@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>This</title>
+  </head>
+  <body>
+    <h1>This key word is not confused anymore</h1>
+    <p onclick="this.innerText='you clicked'">hello! Here i am</p>
+    <script>
+      const myobj = {
+        name: "Kudus Ali",
+        getFullName: function () {
+          console.log(this);
+          return "Mr. " + this.name;
+        },
+      };
+      //myobj.getFullName();
+      const anotherObj = {
+        name: "Biddut Ali",
+      };
+      anotherObj.getFullName = myobj.getFullName;
+      console.log(anotherObj.getFullName);
+      anotherObj.getFullName();
+      myobj.getFullName();
+
+      function add(a, b) {
+        console.log(this);
+        return a + b;
+      }
+      add(12, 13);
+      anotherObj.sum = add;
+      anotherObj.sum();
+    </script>
+  </body>
+</html>
